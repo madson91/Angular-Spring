@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.loading-spineer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(216, 208, 208);
+  padding: 25px;
+
+}

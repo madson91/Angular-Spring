@@ -1,5 +1,7 @@
+import { ActionsService } from './../services/actions.service';
 import { Action } from './../models/action';
 import { Component } from '@angular/core';
+import { Observable, catchError , of} from 'rxjs';
 
 @Component({
   selector: 'app-actions',
@@ -8,10 +10,16 @@ import { Component } from '@angular/core';
 })
 export class ActionsComponent {
 
-  actions:Action[] = [
-    {
-      _id:1, name:'itausa', value:'10,00'
-    }
-  ];
+  actions$:Observable<Action[]>;
   displayedColumns = ['name','value'];
+
+  constructor(private ActionsService:ActionsService){
+    this.actions$ = ActionsService.list()
+    .pipe(
+      catchError(error => {
+        console.log(error);
+        return of([])
+      })
+    );
+  }
 }
