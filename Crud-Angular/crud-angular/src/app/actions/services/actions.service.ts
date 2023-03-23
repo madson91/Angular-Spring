@@ -9,7 +9,7 @@ import { animate } from '@angular/animations';
 })
 export class ActionsService {
 
-  private readonly API = '/assets/actions.json';
+  private readonly API = '/aassets/actions.json';
 
   constructor(private httpCliente: HttpClient) { }
 
